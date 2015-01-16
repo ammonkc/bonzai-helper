@@ -1,0 +1,22 @@
+{
+    "name": "ammonkc/bonzai-helper",
+    "description": "A collection of Helpers and blade extensions for my gulp asset pipeline",
+    "license": "MIT",
+    "keywords": ["laravel", "php", "helpers", "blade", "assets"],
+    "authors": [
+        {
+            "name": "Ammon Casey",
+            "email": "ammon@caseyohana.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ammonkc\\BonzaiHelper\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
