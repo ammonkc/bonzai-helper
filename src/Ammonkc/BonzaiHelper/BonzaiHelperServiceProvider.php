@@ -18,7 +18,7 @@ class BonzaiHelperServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('ammonkc/bonzai-helper');
+        // $this->package('ammonkc/bonzai-helper');
     }
 
     /**
