@@ -14,7 +14,7 @@ class BonzaiHelper
         $ext = '.css';
         $min = '.min';
         $assetDir = Config::get('bonzai-helper::assetDir', 'assets');
-        $buildDir = $assetDir . '/build';
+        $buildDir = Config::get('bonzai-helper::buildDir', 'assets/build');
         $secure = app('request')->secure();
         $link = '';
         static $manifest = null;
@@ -39,7 +39,7 @@ class BonzaiHelper
                 {
                     $asset = str_finish( $file['filename'], $ext);
                 }
-                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/css/' . $manifest[$asset] : $assetDir . '/css/' . $asset);
+                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/' . $asset);
                 $url = app('url')->asset($path, $secure);
                 $link .= '<link href="' . $url . '" rel="stylesheet" type="text/css" media="' . $media . '">';
             }
@@ -57,7 +57,7 @@ class BonzaiHelper
                 $css = str_finish( $file['filename'], $ext);
             }
 
-            $path = ($rev && isset($manifest[$css]) ? $buildDir . '/css/' . $manifest[$css] : $assetDir . '/css/' . $css);
+            $path = ($rev && isset($manifest[$css]) ? $buildDir . '/' . $manifest[$css] : $assetDir . '/' . $css);
             $url = app('url')->asset($path, $secure);
             $link = '<link href="' . $url . '" rel="stylesheet" type="text/css">';
         }
@@ -75,7 +75,7 @@ class BonzaiHelper
         $ext = '.css';
         $min = '.min';
         $assetDir = Config::get('bonzai-helper::assetDir', 'assets');
-        $buildDir = $assetDir . '/build';
+        $buildDir = Config::get('bonzai-helper::buildDir', 'assets/build');
         $link = '';
         static $manifest = null;
 
@@ -101,7 +101,7 @@ class BonzaiHelper
                     $asset = str_finish( $file['filename'], $ext);
                 }
 
-                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/css/' . $manifest[$asset] : $assetDir . '/css/' . $asset);
+                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/' . $asset);
                 $url = app('url')->asset($path, true);
                 $link .= '<link href="' . $url . '" rel="stylesheet" type="text/css">';
             }
@@ -120,7 +120,7 @@ class BonzaiHelper
                 $css = str_finish( $file['filename'], $ext);
             }
 
-            $path = ($rev && isset($manifest[$css]) ? $buildDir . '/css/' . $manifest[$css] : $assetDir . '/css/' . $css);
+            $path = ($rev && isset($manifest[$css]) ? $buildDir . '/' . $manifest[$css] : $assetDir . '/' . $css);
             $url = app('url')->asset($path, true);
             $link = '<link href="' . $url . '" rel="stylesheet" type="text/css">';
         }
@@ -138,7 +138,7 @@ class BonzaiHelper
         $ext = '.js';
         $min = '.min';
         $assetDir = Config::get('bonzai-helper::assetDir', 'assets');
-        $buildDir = $assetDir . '/build';
+        $buildDir = Config::get('bonzai-helper::buildDir', 'assets/build');
         $secure = app('request')->secure();
         $script = '';
         static $manifest = null;
@@ -165,7 +165,7 @@ class BonzaiHelper
                     $asset = str_finish( $file['filename'], $ext);
                 }
 
-                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/js/' . $manifest[$asset] : $assetDir . '/js/' . $asset);
+                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/' . $asset);
                 $url = app('url')->asset($path, $secure);
                 $script .= '<script src="' . $url . '" type="text/javascript"></script>';
             }
@@ -184,7 +184,7 @@ class BonzaiHelper
                 $js = str_finish( $file['filename'], $ext);
             }
 
-            $path = ($rev && isset($manifest[$js]) ? $buildDir . '/js/' . $manifest[$js] : $assetDir . '/js/' . $js);
+            $path = ($rev && isset($manifest[$js]) ? $buildDir . '/' . $manifest[$js] : $assetDir . '/' . $js);
             $url = app('url')->asset($path, $secure);
             $script = '<script src="' . $url . '" type="text/javascript"></script>';
         }
@@ -202,7 +202,7 @@ class BonzaiHelper
         $ext = '.js';
         $min = '.min';
         $assetDir = Config::get('bonzai-helper::assetDir', 'assets');
-        $buildDir = $assetDir . '/build';
+        $buildDir = Config::get('bonzai-helper::buildDir', 'assets/build');
         $script = '';
         static $manifest = null;
 
@@ -228,7 +228,7 @@ class BonzaiHelper
                     $asset = str_finish( $file['filename'], $ext);
                 }
 
-                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/js/' . $manifest[$asset] : $assetDir . '/js/' . $asset);
+                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/' . $asset);
                 $url = app('url')->asset($path, true);
                 $script .= '<script src="' . $url . '" type="text/javascript"></script>';
             }
@@ -246,7 +246,7 @@ class BonzaiHelper
                 $js = str_finish( $file['filename'], $ext);
             }
 
-            $path = ($rev && isset($manifest[$js]) ? $buildDir . '/js/' . $manifest[$js] : $assetDir . '/js/' . $js);
+            $path = ($rev && isset($manifest[$js]) ? $buildDir . '/' . $manifest[$js] : $assetDir . '/' . $js);
             $url = app('url')->asset($path, true);
             $script = '<script src="' . $url . '" type="text/javascript"></script>';
         }
