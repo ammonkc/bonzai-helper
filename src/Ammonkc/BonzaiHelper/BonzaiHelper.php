@@ -39,7 +39,7 @@ class BonzaiHelper
                 {
                     $asset = str_finish( $file['filename'], $ext);
                 }
-                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/' . $asset);
+                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/css/' . $asset);
                 $url = app('url')->asset($path, $secure);
                 $link .= '<link href="' . $url . '" rel="stylesheet" type="text/css" media="' . $media . '">';
             }
@@ -57,7 +57,7 @@ class BonzaiHelper
                 $css = str_finish( $file['filename'], $ext);
             }
 
-            $path = ($rev && isset($manifest[$css]) ? $buildDir . '/' . $manifest[$css] : $assetDir . '/' . $css);
+            $path = ($rev && isset($manifest[$css]) ? $buildDir . '/' . $manifest[$css] : $assetDir . '/css/' . $css);
             $url = app('url')->asset($path, $secure);
             $link = '<link href="' . $url . '" rel="stylesheet" type="text/css">';
         }
@@ -101,7 +101,7 @@ class BonzaiHelper
                     $asset = str_finish( $file['filename'], $ext);
                 }
 
-                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/' . $asset);
+                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/css/' . $asset);
                 $url = app('url')->asset($path, true);
                 $link .= '<link href="' . $url . '" rel="stylesheet" type="text/css">';
             }
@@ -120,7 +120,7 @@ class BonzaiHelper
                 $css = str_finish( $file['filename'], $ext);
             }
 
-            $path = ($rev && isset($manifest[$css]) ? $buildDir . '/' . $manifest[$css] : $assetDir . '/' . $css);
+            $path = ($rev && isset($manifest[$css]) ? $buildDir . '/' . $manifest[$css] : $assetDir . '/css/' . $css);
             $url = app('url')->asset($path, true);
             $link = '<link href="' . $url . '" rel="stylesheet" type="text/css">';
         }
@@ -165,7 +165,7 @@ class BonzaiHelper
                     $asset = str_finish( $file['filename'], $ext);
                 }
 
-                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/' . $asset);
+                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/js/' . $asset);
                 $url = app('url')->asset($path, $secure);
                 $script .= '<script src="' . $url . '" type="text/javascript"></script>';
             }
@@ -184,7 +184,7 @@ class BonzaiHelper
                 $js = str_finish( $file['filename'], $ext);
             }
 
-            $path = ($rev && isset($manifest[$js]) ? $buildDir . '/' . $manifest[$js] : $assetDir . '/' . $js);
+            $path = ($rev && isset($manifest[$js]) ? $buildDir . '/' . $manifest[$js] : $assetDir . '/js/' . $js);
             $url = app('url')->asset($path, $secure);
             $script = '<script src="' . $url . '" type="text/javascript"></script>';
         }
@@ -228,7 +228,7 @@ class BonzaiHelper
                     $asset = str_finish( $file['filename'], $ext);
                 }
 
-                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/' . $asset);
+                $path = ($rev && isset($manifest[$asset]) ? $buildDir . '/' . $manifest[$asset] : $assetDir . '/js/' . $asset);
                 $url = app('url')->asset($path, true);
                 $script .= '<script src="' . $url . '" type="text/javascript"></script>';
             }
@@ -246,7 +246,7 @@ class BonzaiHelper
                 $js = str_finish( $file['filename'], $ext);
             }
 
-            $path = ($rev && isset($manifest[$js]) ? $buildDir . '/' . $manifest[$js] : $assetDir . '/' . $js);
+            $path = ($rev && isset($manifest[$js]) ? $buildDir . '/' . $manifest[$js] : $assetDir . '/js/' . $js);
             $url = app('url')->asset($path, true);
             $script = '<script src="' . $url . '" type="text/javascript"></script>';
         }
