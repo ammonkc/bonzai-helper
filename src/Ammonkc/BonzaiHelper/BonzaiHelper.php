@@ -355,4 +355,18 @@ class BonzaiHelper
 
         return count($html) > 0 ? ' '.implode(' ', $html) : '';
     }
+
+    /**
+     * Build a single attribute element.
+     *
+     * @param  string  $key
+     * @param  string  $value
+     * @return string
+     */
+    protected function attributeElement($key, $value)
+    {
+        if (is_numeric($key)) $key = $value;
+
+        if ( ! is_null($value)) return $key.'="'.e($value).'"';
+    }
 }
