@@ -13,8 +13,8 @@ class BonzaiHelper
     {
         $ext = '.css';
         $min = '.min';
-        $assetDir = Config::get('bonzai-helper::assetDir', 'assets');
-        $buildDir = Config::get('bonzai-helper::buildDir', 'assets/build');
+        $assetDir = Config::get('bonzaiHelper::assetDir', 'assets');
+        $buildDir = Config::get('bonzaiHelper::buildDir', 'assets/build');
         $secure = app('request')->secure();
         $link = '';
         static $manifest = null;
@@ -74,8 +74,8 @@ class BonzaiHelper
     {
         $ext = '.css';
         $min = '.min';
-        $assetDir = Config::get('bonzai-helper::assetDir', 'assets');
-        $buildDir = Config::get('bonzai-helper::buildDir', 'assets/build');
+        $assetDir = Config::get('bonzaiHelper::assetDir', 'assets');
+        $buildDir = Config::get('bonzaiHelper::buildDir', 'assets/build');
         $link = '';
         static $manifest = null;
 
@@ -137,8 +137,8 @@ class BonzaiHelper
     {
         $ext = '.js';
         $min = '.min';
-        $assetDir = Config::get('bonzai-helper::assetDir', 'assets');
-        $buildDir = Config::get('bonzai-helper::buildDir', 'assets/build');
+        $assetDir = Config::get('bonzaiHelper::assetDir', 'assets');
+        $buildDir = Config::get('bonzaiHelper::buildDir', 'assets/build');
         $secure = app('request')->secure();
         $script = '';
         static $manifest = null;
@@ -201,8 +201,8 @@ class BonzaiHelper
     {
         $ext = '.js';
         $min = '.min';
-        $assetDir = Config::get('bonzai-helper::assetDir', 'assets');
-        $buildDir = Config::get('bonzai-helper::buildDir', 'assets/build');
+        $assetDir = Config::get('bonzaiHelper::assetDir', 'assets');
+        $buildDir = Config::get('bonzaiHelper::buildDir', 'assets/build');
         $script = '';
         static $manifest = null;
 
@@ -264,7 +264,7 @@ class BonzaiHelper
         $ext = '.js';
         $prefix = 'jquery';
         $min = '.min';
-        $assetDir = Config::get('bonzai-helper::assetDir', 'assets') . '/js/';
+        $assetDir = Config::get('bonzaiHelper::assetDir', 'assets') . '/js/';
         $secure = app('request')->secure();
         $file = pathinfo($version);
         $version = preg_replace('/^' . preg_quote($prefix.'-', '/') . '/', '', (ends_with($file['filename'], $min) ? pathinfo($file['filename'], PATHINFO_FILENAME) : (ends_with($file['basename'], $ext) ? $file['filename'] : $file['basename'])));
@@ -291,7 +291,7 @@ class BonzaiHelper
      */
     public function image($img, $alt = null, $attributes = array(), $secure = null)
     {
-        $path = Config::get('bonzai-helper::assetDir', 'assets') . '/img/' . $img;
+        $path = Config::get('bonzaiHelper::assetDir', 'assets') . '/img/' . $img;
         $secure = (is_null($secure) ? app('request')->secure() : $secure);
         $url = app('url')->asset($path, $secure);
         $attributes['alt'] = $alt;
@@ -315,7 +315,7 @@ class BonzaiHelper
      */
     public function icon($ico, $rel = 'shortcut icon')
     {
-        $path = Config::get('bonzai-helper::assetDir', 'assets') . '/ico/' . $ico;
+        $path = Config::get('bonzaiHelper::assetDir', 'assets') . '/ico/' . $ico;
         $secure = app('request')->secure();
         $url = app('url')->asset($path, $secure);
         return '<link src="' . $url . '" rel="' . $rel . '">';
@@ -328,7 +328,7 @@ class BonzaiHelper
      */
     public function icon_secure($ico, $rel = 'shortcut icon')
     {
-        $path = Config::get('bonzai-helper::assetDir', 'assets') . '/ico/' . $ico;
+        $path = Config::get('bonzaiHelper::assetDir', 'assets') . '/ico/' . $ico;
         $url = app('url')->asset($path, true);
         return '<link src="' . $url . '" rel="' . $rel . '">';
     }
