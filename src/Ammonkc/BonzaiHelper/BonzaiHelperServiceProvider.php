@@ -19,6 +19,9 @@ class BonzaiHelperServiceProvider extends ServiceProvider {
     public function boot()
     {
         // $this->package('ammonkc/bonzai-helper');
+        $this->publishes([
+            __DIR__.'/../../config/bonzaiHelper.php' => config_path('bonzaiHelper.php'),
+        ]);
     }
 
     /**
@@ -28,6 +31,10 @@ class BonzaiHelperServiceProvider extends ServiceProvider {
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/bonzaiHelper.php', 'bonzaiHelper'
+        );
+
         $this->registerBonzai();
 
         $this->registerBladeExtensions();
