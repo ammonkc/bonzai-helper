@@ -20,7 +20,7 @@ class BonzaiHelperServiceProvider extends ServiceProvider {
     {
         // $this->package('ammonkc/bonzai-helper');
         $this->publishes([
-            __DIR__.'/../../config/bonzaiHelper.php' => config_path('bonzaiHelper.php'),
+            __DIR__.'/../../config/bonzai.php' => config_path('bonzai.php'),
         ]);
     }
 
@@ -32,7 +32,7 @@ class BonzaiHelperServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/bonzaiHelper.php', 'bonzaiHelper'
+            __DIR__.'/../../config/bonzai.php', 'bonzai'
         );
 
         $this->registerBonzai();
