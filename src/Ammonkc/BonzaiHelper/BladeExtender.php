@@ -24,51 +24,51 @@ class BladeExtender
 
     public function javascript($expression)
     {
-        return "<?php echo Bonzai::javascript($expression); ?>";
+        return "<?php echo 'Bonzai::javascript('.$expression.')'; ?>";
     }
 
     public function javascript_secure($expression)
     {
-        return "<?php echo Bonzai::javascript_secure($expression); ?>";
+        return "<?php echo 'Bonzai::javascript_secure('.$expression.')'; ?>";
     }
 
     public function stylesheet($expression)
     {
-        return "<?php echo Bonzai::stylesheet($expression); ?>";
+        return "<?php echo 'Bonzai::stylesheet('.$expression.')'; ?>";
     }
 
     public function stylesheet_secure($expression)
     {
-        return "<?php echo Bonzai::stylesheet_secure($expression); ?>";
+        return "<?php echo 'Bonzai::stylesheet_secure('.$expression.')'; ?>";
     }
 
     public function image($expression)
     {
-        return "<?php echo Bonzai::image($expression); ?>";
+        return "<?php echo 'Bonzai::image('.$expression.')'; ?>";
     }
 
     public function image_secure($expression)
     {
-        return "<?php echo Bonzai::image_secure($expression); ?>";
+        return "<?php echo 'Bonzai::image_secure('.$expression.')'; ?>";
     }
 
     public function icon($expression)
     {
-        return "<?php echo Bonzai::icon($expression); ?>";
+        return "<?php echo 'Bonzai::icon('.$expression.')'; ?>";
     }
 
     public function icon_secure($expression)
     {
-        return "<?php echo Bonzai::icon_secure($expression); ?>";
+        return "<?php echo 'Bonzai::icon_secure('.$expression.')'; ?>";
     }
 
     public function jquery($expression)
     {
-        return "<?php echo Bonzai::jquery($expression); ?>";
+        return "<?php echo 'Bonzai::jquery('.$expression.')'; ?>";
     }
 
     public function ckeditor($expression)
     {
-        return "<?php echo Bonzai::ckeditor($expression); ?>";
+        return "<?php echo 'Bonzai::ckeditor('.$expression.')'; ?>";
     }
 }
