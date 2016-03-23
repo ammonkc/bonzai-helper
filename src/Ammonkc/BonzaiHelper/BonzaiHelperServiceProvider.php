@@ -1,5 +1,6 @@
 <?php namespace Ammonkc\BonzaiHelper;
 
+use Ammonkc\BonzaiHelper\BladeExtender;
 use Illuminate\Support\ServiceProvider;
 
 class BonzaiHelperServiceProvider extends ServiceProvider {
@@ -18,7 +19,8 @@ class BonzaiHelperServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        // $this->package('ammonkc/bonzai-helper');
+        $this->registerBladeExtender();
+
         $this->publishes([
             __DIR__.'/../../config/bonzai.php' => config_path('bonzai.php'),
         ]);
@@ -36,8 +38,6 @@ class BonzaiHelperServiceProvider extends ServiceProvider {
         );
 
         $this->registerBonzai();
-
-        $this->registerBladeExtensions();
     }
 
     /**
@@ -64,90 +64,9 @@ class BonzaiHelperServiceProvider extends ServiceProvider {
     }
 
     /**
-     * Register the Blade extensions with the compiler.
-     *
-     * @return void
+     * Register the blade extender to use new blade sections
      */
-    protected function registerBladeExtensions()
-    {
-        $blade = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('javascript');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::javascript$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('jquery');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::jquery$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('angular');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::angular$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('ckeditor');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::ckeditor$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('javascript_secure');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::javascript_secure$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('stylesheet');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::stylesheet$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('stylesheet_secure');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::stylesheet_secure$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('image');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::image$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('image_secure');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::image_secure$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('icon');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::icon$2; ?>', $value);
-        });
-
-        $blade->extend(function($value, $compiler)
-        {
-            $matcher = $compiler->createMatcher('icon_secure');
-
-            return preg_replace($matcher, '$1<?php echo Bonzai::icon_secure$2; ?>', $value);
-        });
+    protected function registerBladeExtender() {
+        BladeExtender::attach($this->app);
     }
-
 }
